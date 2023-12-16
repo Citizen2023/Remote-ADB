@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<plist version="1.0">
+<dict>
+<key>pings</key>
+<array></array>
+<key>metrics</key>
+<dict>
+  <key>dialogId</key><string>MZFinance.ManageSubscriptionsLoginRequired</string>
+  <key>message</key><string>Sign in to manage subscri</string>
+  <key>messageCode</key><string>5074</string>
+  <key>options</key>
+  <array>
+    <string>Manage Subscriptions</string>
+    <string>Cancel</string>
+  </array>
+  <key>actionUrl</key><string>buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/manageSubscriptions</string>
+  <key>eventType</key><string>dialog</string>
+</dict>
+<key>failureType</key><string>5074</string>
+<key>customerMessage</key><string>Sign in to manage subscriptions.</string>
+<key>m-allowed</key><false/>
+<key>dialog</key>
+<dict><key>kind</key><string>authorization</string>
+<key>m-allowed</key><false/>
+<key>message</key><string>Sign in to manage subscriptions.</string>
+<key>explanation</key><string>Enter your Apple ID and password and click Manage Subscriptions.</string>
+<key>defaultButton</key><string>ok</string>
+<key>okButtonString</key><string>Manage Subscriptions</string>
+<key>okButtonAction</key><dict><key>kind</key><string>Goto</string>
+<key>url</key><string>https://buy.itunes.apple.com/WebObjects/MZFinance.woa/wa/com.apple.jingle.app.finance.DirectAction/manageSubscriptions</string>
+</dict>
+<key>cancelButtonString</key><string>Cancel</string>
+<key>initialCheckboxValue</key><true/></dict>
+<key>cancel-purchase-batch</key><true/>
+</dict>
+</plist>
