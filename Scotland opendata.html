@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html prefix="dct: http://purl.org/dc/terms/
+              rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+              dcat: http://www.w3.org/ns/dcat#
+              foaf: http://xmlns.com/foaf/0.1/" lang="en">
+
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Home - Open Data Scotland</title>
+  <meta name="description" content="A crowdsourced open data portal, aggregating open datasets across Scotland.">
+  <meta name="keywords" content="open, data, scotland, crowdsourced, volunteer, portal, Home">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  
+  
+  
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.2/css/select2.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/notie/3.0.0/notie.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+  integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+  crossorigin=""/>
+  <link rel="stylesheet" href="/css/main.css?v=1702646290">
+  <link rel="canonical" href="https://opendata.scot/">
+  <link rel="me" href="https://mastodon.scot/@opendatascotland">
+
+  
+
+  
+
+  <!-- Plausible Analytics -->
+  <script defer data-domain="opendata.scot" src="https://plausible.io/js/plausible.js"></script>
+
+  
+
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Home" />
+<meta property="og:site_name" content="Open Data Scotland" />
+
+<meta property="og:description" content="A crowdsourced open data portal, aggregating open datasets across Scotland." />
+<meta name="og:image" content="/img/ods_logo_transparent_2022.png" />
+<meta name="og:image:width" content="150" />
+<meta name="og:image:height" content="150" />
+
+  
+
+  
+  <!-- Twittercard -->
+  <meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@opendata_sco" />
+<!-- Twitter truncates twitter:title to 70 characters. -->
+
+<meta name="twitter:title" content="Home - Open Data Scotland" />
+<!-- Twitter truncates twitter:description at the word to 200 characters. -->
+
+<meta name="twitter:description" content="A crowdsourced open data portal, aggregating open datasets across Scotland." />
+<meta name="twitter:image" content="/img/ods_logo_transparent_2022.png" />
+
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js" ></script>
+  <script src="/scripts/dist/bundle.js?v=1702646290" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+  integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+  crossorigin=""></script>
+  <script src="https://unpkg.com/mustache@latest"></script>
+  <script src="/scripts/dist/map-utils.js?v=1702646290"></script>
+
+
+
+  <script>
+    var settings = {
+    BASE_URL: "",
+    PAGE_URL: "/",
+    REPO_BRANCH:  "gh-pages",
+    REPO_OWNER: "OpenDataScotland",
+    REPO_NAME: "jkan",
+    GITHUB_CLIENT_ID: "866fbab7e44f7551e770",
+    GATEKEEPER_HOST: "https://ods-jkan.herokuapp.com"
+  }
+  </script>
+</head>
+
+
+<body>
+  <div class="content">
+    <nav class="navbar navbar-default" data-component="navigation">
+  <div class="container">
+
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/" style="display:flex; align-items:center;">
+        <img src="/img/ods_logo_transparent_2022.png" alt="Open Data Scotland logo" style="margin-right: 1rem; height: 150%;">
+        Open Data Scotland
+      </a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        
+        
+        <li><a href="/datasets/">Datasets </a></li>
+        
+        
+        
+        <li><a href="/organizations/">Organizations </a></li>
+        
+        
+        
+        
+        
+        
+        <li class="dropdown">
+          
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Analytics <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            
+            
+            <li><a href="/analytics/">Overview</a></li>
+            
+            
+            
+            <li><a href="/analytics/file-types/">Dataset file types</a></li>
+            
+            
+            
+            <li><a href="/analytics/licensing/">Dataset licensing</a></li>
+            
+            
+            
+            <li><a href="/analytics/local-authority-categories/">Local authority category breakdown</a></li>
+            
+            
+            
+            <li><a href="/analytics/local-authority-coverage/">Local authority coverage</a></li>
+            
+            
+            
+            <li><a href="/analytics/portal-types/">Portal types</a></li>
+            
+            
+            
+            <li><a href="/analytics/platform-health/">Platform health</a></li>
+            
+            
+          </ul>
+        </li>
+        
+        
+        
+        <li><a href="/suggest-dataset/">Suggest dataset </a></li>
+        
+        
+        
+        
+        
+        
+        <li class="dropdown">
+          
+          <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Resources <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            
+            
+            <li><a href="/resources/aboutods/">About Open Data Scotland</a></li>
+            
+            
+            
+            <li><a href="/resources/whatisod/">What is Open Data?</a></li>
+            
+            
+            
+            <li><a href="/resources/workingwithod/">Working with Open Data</a></li>
+            
+            
+            
+            <li><a href="/resources/odprojects/">Open Data Projects</a></li>
+            
+            
+            
+            <li><a href="/resources/odsmedia/">ODS Media</a></li>
+            
+            
+            
+            <li><a href="/resources/siteanalytics/">Site Analytics</a></li>
+            
+            
+          </ul>
+        </li>
+        
+        
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" data-hook="login-link">Login</a></li>
+        <li class="dropdown hidden" data-hook="user-dropdown">
+          <a href="#" class="dropdown-toggle" data-hook="user-dropdown-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <span class="user-issue" data-hook="user-issue"><i class="fa fa-exclamation-circle"></i></span>
+            <span data-hook="user-name">User</span>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="admin-only" data-hook="admin-link-list-item"><a href="/admin/">Administration</a></li>
+            <li><a href="#" data-hook="logout-link">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+
+  
+</nav>
+
+    <section data-hook="main" class="container">
+      <div class="jumbotron">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-xs-12">
+        <img src="/img/ods_logo_transparent_2022.png" alt="Open Data Scotland logo" style="object-fit: cover; margin-right: 2rem; width: 100%;">
+      </div>
+      <div class="col-lg-9 col-xs-12">
+        <h1>Welcome to Open Data Scotland</h1>
+        <p>
+          A crowdsourced open data portal, aggregating open datasets across Scotland.
+        </p>
+        <p><a class="btn btn-primary btn-lg" href="/datasets" role="button">Start browsing</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="row">
+  <div class="col-md-6 col-xs-12">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h2 class="panel-title">Recently popular datasets (last 7 days)</h2>
+      </div>
+      <!-- List group -->
+      <div class="list-group" id="popular-datasets" data-component="popular-datasets">
+        <div class="loader loader-centre"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6 col-xs-12">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">
+        <h2 class="panel-title">5 random datasets</h2>
+      </div>
+      <!-- List group -->
+      <div class="list-group" id="random-datasets" data-component="random-datasets">
+        <div class="loader loader-centre"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<h2>Browse by Category</h2>
+
+<div class="homepage-categories">
+  
+  
+  
+  <a href="/datasets/?category=arts-culture-history" class="thumbnail" title="Arts / Culture / History">
+    
+    <img src="/img/categories/arts-culture-history.svg" alt="Arts / Culture / History">
+    
+    Arts / Culture / History
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=budget-finance" class="thumbnail" title="Budget / Finance logo by Renan Ferreira Santos from the Noun Project">
+    
+    <img src="/img/categories/budget-finance.svg" alt="Budget / Finance logo by Renan Ferreira Santos from the Noun Project">
+    
+    Budget / Finance
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=business-and-economy" class="thumbnail" title="Business and Economy logo by Vectors Market from the Noun Project">
+    
+    <img src="/img/categories/business_and_economy.svg" alt="Business and Economy logo by Vectors Market from the Noun Project">
+    
+    Business and Economy
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=council-and-government" class="thumbnail" title="Council and Government logo by praveen patchu from the Noun Project">
+    
+    <img src="/img/categories/council_and_government.svg" alt="Council and Government logo by praveen patchu from the Noun Project">
+    
+    Council and Government
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=education" class="thumbnail" title="Education logo by Sergey Patutin from the Noun Project">
+    
+    <img src="/img/categories/education.svg" alt="Education logo by Sergey Patutin from the Noun Project">
+    
+    Education
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=elections-politics" class="thumbnail" title="Elections / Politics logo by Jean Soo from the Noun Project">
+    
+    <img src="/img/categories/elections-politics.svg" alt="Elections / Politics logo by Jean Soo from the Noun Project">
+    
+    Elections / Politics
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=food-and-environment" class="thumbnail" title="Food and Environment">
+    
+    <img src="/img/categories/food_environment.svg" alt="Food and Environment">
+    
+    Food and Environment
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=health-and-social-care" class="thumbnail" title="Health and Social Care logo by Timothy Miller from the Noun Project">
+    
+    <img src="/img/categories/health-human-services.svg" alt="Health and Social Care logo by Timothy Miller from the Noun Project">
+    
+    Health and Social Care
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=housing-and-estates" class="thumbnail" title="Housing and Estates">
+    
+    <img src="/img/categories/housing_and_estates.svg" alt="Housing and Estates">
+    
+    Housing and Estates
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=law-and-licensing" class="thumbnail" title="Law and Licensing logo by ghufronagustian from the Noun Project">
+    
+    <img src="/img/categories/law_and_licensing.svg" alt="Law and Licensing logo by ghufronagustian from the Noun Project">
+    
+    Law and Licensing
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=parks-recreation" class="thumbnail" title="Parks / Recreation logo by Pipe Rosas Licht from the Noun Project">
+    
+    <img src="/img/categories/parks-recreation.svg" alt="Parks / Recreation logo by Pipe Rosas Licht from the Noun Project">
+    
+    Parks / Recreation
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=planning-and-development" class="thumbnail" title="Planning and Development">
+    
+    <img src="/img/categories/planning_and_development.svg" alt="Planning and Development">
+    
+    Planning and Development
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=public-safety" class="thumbnail" title="Public Safety logo by Vectors Point from the Noun Project">
+    
+    <img src="/img/categories/new_public_safety.svg" alt="Public Safety logo by Vectors Point from the Noun Project">
+    
+    Public Safety
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=sport-and-leisure" class="thumbnail" title="Sport and Leisure logo by Adrien Coquet from theNoun Project">
+    
+    <img src="/img/categories/sport_and_leisure.svg" alt="Sport and Leisure logo by Adrien Coquet from theNoun Project">
+    
+    Sport and Leisure
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=tourism" class="thumbnail" title="Tourism logo by WEBTECHOPS LLP from the Noun Project">
+    
+    <img src="/img/categories/tourism.svg" alt="Tourism logo by WEBTECHOPS LLP from the Noun Project">
+    
+    Tourism
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=transportation" class="thumbnail" title="Transportation logo by Dmitry Baranovskiy from the Noun Project">
+    
+    <img src="/img/categories/transportation.svg" alt="Transportation logo by Dmitry Baranovskiy from the Noun Project">
+    
+    Transportation
+  </a>
+  
+  
+  
+  
+  <a href="/datasets/?category=uncategorised" class="thumbnail" title="Uncategorised logo by Edward Boatman from the Noun Project">
+    
+    <img src="/img/categories/uncategorized.svg" alt="Uncategorised logo by Edward Boatman from the Noun Project">
+    
+    Uncategorised
+  </a>
+  
+  
+</div>
+    </section>
+
+  </div>
+  <footer class="footer">
+    <div class="container">
+        <div class="footer-wrapper">
+            <div>
+                All original content
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>
+                <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img
+                        alt="Creative Commons Licence" style="border-width:0"
+                        src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a>
+            </div>
+            <div class="footer-icons">
+                <a href="https://github.com/OpenDataScotland/" aria-label="OpenDataScotland GitHub account" target="_blank"><i class="fa fa-github"></i></a>
+                <a href="https://twitter.com/opendata_sco" aria-label="OpenDataScotland Twitter account" target="_blank"><i class="fa fa-twitter"></i></a>
+                <a href="https://join.slack.com/t/opendatascotland/shared_invite/zt-yfcc64tg-xIF1cOxkWbKZqI8ZBPzkGg" aria-label="OpenDataScotland Slack group" target="_blank"><i class="fa fa-slack"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>
