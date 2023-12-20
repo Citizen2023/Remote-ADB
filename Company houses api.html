@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html class="govuk-template" lang="en">
+<head>
+  <title>Companies House API Overview</title>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+  <!--[if lte IE 8]>
+  <link
+      href="@{{cdnUrl}/stylesheets/govuk-frontend/v3.11.0/govuk-frontend-ie8-3.11.0.min.css(cdnUrl=${@environment.getProperty('cdn.url')})}"
+      rel="stylesheet"
+      type="text/css"/>
+  <![endif]-->
+  <link
+      media="all"
+      rel="stylesheet"
+      href="//d6nh3dxv55e16.cloudfront.net/stylesheets/govuk-frontend/v3.11.0/govuk-frontend-3.11.0.min.css"
+      type="text/css"/>
+  <link rel="stylesheet"
+        href="/css/application.css"
+        type="text/css"/>
+  <link
+      rel="icon"
+      href="//d6nh3dxv55e16.cloudfront.net/images/favicon.ico?0.17.3"
+      type="image/png"/>
+  <link
+      rel="icon"
+      href="//d6nh3dxv55e16.cloudfront.net/images/royal-coat-of-arms-white.png"
+      type="image/png"/>
+  <script>
+        window.SERVICE_NAME = 'developer-hub'
+        window.PIWIK_URL = "https:\/\/matomo.companieshouse.gov.uk\/";
+        window.PIWIK_SITE_ID = "15";
+  </script>
+</head>
+<body class="govuk-template__body">
+<div hidden id="templateName" data-id="dev-hub/overview"></div>
+<div id="skiplink-container">
+  <a class="govuk-skip-link" href="#main-content">Skip to main content</a>
+</div>
+<div>
+  <div id="cookie-banner" class="govuk-cookie-banner" role="region" aria-label="Cookies on Companies House services" hidden>
+    <div id="accept-or-reject-message" class="govuk-cookie-banner__message govuk-width-container" hidden>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <h2 class="govuk-cookie-banner__heading govuk-heading-m">Cookies on Companies House services</h2>
+          <div class="govuk-cookie-banner__content">
+            <p>We use some essential cookies to make our services work.</p>
+            <p>We'd also like to use analytics cookies so we can understand how you use our services and to make improvements.</p>
+          </div>
+        </div>
+      </div>
+      <div class="govuk-button-group">
+        <button id="accept-cookies-button" type="button" class="govuk-button" data-module="govuk-button">
+          Accept analytics cookies
+        </button>
+        <button id="reject-cookies-button" type="button" class="govuk-button" data-module="govuk-button">
+          Reject analytics cookies
+        </button>
+        <a class="govuk-link" href="https://find-and-update.company-information.service.gov.uk/help/cookies">View cookies</a>
+      </div>
+    </div>
+    <div id="accepted-cookies-message" class="govuk-cookie-banner__message govuk-width-container" role="alert" hidden>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-cookie-banner__content">
+            <p>You've accepted analytics cookies. You can <a class="govuk-link" href="https://find-and-update.company-information.service.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
+          </div>
+        </div>
+      </div>
+      <div class="govuk-button-group">
+        <button id="hide-accepted-message-button" class="govuk-button" data-module="govuk-button">
+          Hide this message
+        </button>
+      </div>
+    </div>
+    <div id="rejected-cookies-message" class="govuk-cookie-banner__message govuk-width-container" role="alert" hidden>
+      <div class="govuk-grid-row">
+        <div class="govuk-grid-column-two-thirds">
+          <div class="govuk-cookie-banner__content">
+            <p>You've rejected analytics cookies. You can <a class="govuk-link" href="https://find-and-update.company-information.service.gov.uk/help/cookies">change your cookie settings</a> at any time.</p>
+          </div>
+        </div>
+      </div>
+      <div class="govuk-button-group">
+        <button id="hide-rejected-message-button" class="govuk-button" data-module="govuk-button">
+          Hide this message
+        </button>
+      </div>
+    </div>
+  </div>
+  <noscript>
+    <div class="ch-cookie-cookie-banner" role="region" aria-label="Cookies on Companies House services">
+      <div class="ch-cookie-cookie-banner__message ch-cookie-width-container">
+        <div class="ch-cookie-grid-row">
+          <div class="ch-cookie-grid-column-two-thirds">
+            <h2 class="ch-cookie-cookie-banner__heading ch-cookie-heading-m">Cookies on Companies House services</h2>
+            <div class="ch-cookie-cookie-banner__content">
+              <p class="ch-cookie-body">We use cookies to make our services work and collect analytics information. To accept or reject analytics cookies, turn on JavaScript in your browser settings and reload this page.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </noscript>
+</div>
+
+  <header class="govuk-header" id="global-header">
+    <div class="govuk-header__container govuk-width-container">
+      <div class="header-global">
+        <div class="govuk-header__logo">
+          <a class="govuk-header__link govuk-header__link--homepage" id="logo"
+             href="https://find-and-update.company-information.service.gov.uk/"
+             title="Go to the companies house homepage">
+            <span class="govuk-header__logotype">
+              <svg role="presentation" focusable="false" class="govuk-header__logotype-crown"
+                   xmlns="http://www.w3.org/2000/svg" viewBox="0 0 86 86" height="32" width="32">
+                <path fill="currentColor" fill-rule="evenodd"
+                      d="M11.6,15c-0.6,2,1.8,1.8,1.8,1.8l-0.6,0.5c0,0-3.2,0-2.4-2.4c0.8-2.4,4.9-0.9,5.2-0.8c0,0,0,0,0,0 c0.1,0.1,0.2,0.2,0.3,0.3C15.5,14.2,12.2,13.1,11.6,15z"></path>
+                <path fill="currentColor" fill-rule="evenodd"
+                      d="M16.9,13.5c0,0,2-4.3,4.2-3.1c2.3,1.2,0,3.5,0,3.5l-0.8,0c0,0,1.9-1.6,0.1-2.6c-1.6-0.9-3.2,1.9-3.5,2.6 c0-0.1,0-0.1,0-0.2C16.9,13.7,16.9,13.6,16.9,13.5L16.9,13.5z"></path>
+                <path fill="currentColor" fill-rule="evenodd"
+                      d="M16.5,13.2c0.1,0.1,0.2,0.2,0.3,0.3c0,0.1,0.1,0.1,0.1,0.2c0,0.1,0,0.1,0,0.2c0,0,0,0,0,0c0,0,0,0.1,0,0.1c0,0,0,0,0,0 c-0.1,0.2-0.3,0.3-0.5,0.3c-0.1,0-0.1,0-0.2,0c0,0,0,0-0.1,0c-0.1-0.1-0.2-0.2-0.3-0.3c0,0,0,0,0,0c0-0.1,0-0.2,0-0.2 c0-0.3,0-0.8-0.1-1.1c0,0,0,0-0.1,0L15,13.3l-0.4-0.9l0.8-0.1c0,0,0-0.1,0-0.1l-0.6-0.7l0.9-0.3l0.1,0.9c0,0,0,0,0,0l0.6-0.5 l0.3,0.9l-0.8-0.1c0,0,0,0.1,0,0.1C16,12.8,16.3,13,16.5,13.2z"></path>
+                <path fill="currentColor" fill-rule="evenodd"
+                      d="M16.8,14.1C16.8,14.1,16.8,14,16.8,14.1C16.8,14,16.8,14.1,16.8,14.1z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M16.5,16.8l-0.5-1c0.4,0.2,0.7,0.1,1,0c-0.2-0.2-0.9-0.6-0.9-0.6l1.4-0.6c0,0-0.2,0.7-0.2,1c0.3-0.1,0.5-0.3,0.7-0.7 l0.3,1.1c-0.4-0.3-0.8-0.3-0.9-0.2c0.2,0.4,0.4,0.9,1.1,0.6c0.5-0.1,0.8-0.5,0.7-0.8c-0.1-0.4-0.5-0.4-0.6,0 c-0.4-0.5,0-0.9,0.5-0.7c-0.5-0.5-0.6-0.9-0.3-1.5c0.6,0.4,0.7,0.8,0.4,1.5l0,0l0,0c0.2-0.3,0.8-0.3,0.7,0.4 c-0.3-0.3-0.6-0.1-0.5,0.2c0,0.2,0.3,0.4,0.6,0.4c0.3-0.1,0.6-0.4,0.6-1.1c-0.2,0.1-0.3,0.2-0.4,0.4l-0.1-1.1 c0.2,0.2,0.4,0.4,0.5,0.5c0-0.2-0.1-0.4-0.3-0.7l0.8,0c-0.1,0.6-0.2,1.4,0,2.6c-0.9,0.2-2.4,0.7-3.2,1c-0.9,0.4-2.3,1-3,1.5 c-0.7-1-1.3-1.5-1.9-1.8l0.6-0.5c0.1,0.4,0.1,0.5,0.3,0.7c0.1-0.1,0.1-0.4,0-0.7l0.7,0.9c-0.2,0-0.4-0.1-0.6,0 c0.6,0.5,1,0.5,1.2,0.4c0.3-0.2,0.3-0.5,0.2-0.7c-0.2-0.3-0.6-0.2-0.6,0.2c-0.5-0.5-0.1-0.8,0.3-0.8c-0.7-0.3-0.9-0.7-0.7-1.4
+                      			c0.7,0.2,0.9,0.6,0.9,1.3c0.2-0.5,0.7-0.5,0.8,0.2c-0.4-0.3-0.6,0.1-0.4,0.4c0.2,0.3,0.6,0.4,1.1,0.1c0.6-0.4,0.5-0.8,0.4-1.2
+                      			C16.8,16.1,16.6,16.4,16.5,16.8z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M42.4,45h9.5c0-1.5-0.3-3-0.8-4.3c-0.5-1.4-1.2-2.6-2.1-3.7c-0.9-1.1-2-1.9-3.1-2.5c-1.1-0.5-2.2-0.8-3.4-0.9V45z
+                      			 M42.4,56.1c0.8,0,2.2,0.2,2.2,0.2c0.2-0.1,1.1-0.3,1.3-0.4c1.2-0.6,2.2-1.4,3.1-2.5s1.6-2.3,2.1-3.7c0.5-1.3,0.7-2.7,0.8-4.2
+                      			h-9.5V56.1z M32.9,40.6c-0.5,1.4-0.8,2.8-0.8,4.3h9.7V33.5c-1.3,0-2.5,0.3-3.7,0.9C37,35,35.9,35.8,35,36.9
+                      			C34.1,38,33.4,39.2,32.9,40.6z M31,42.4c0-0.5-0.3-1.1-0.8-1.7c-0.3-0.3-1.4-1.6-1.7-1.9c0.7-1.9,1.8-3.7,3.1-5.2
+                      			c0.9-1,1.9-1.9,2.9-2.5c-0.6-0.4-1.2-0.9-1.2-1.8c0-0.1,0-0.2,0-0.2l0.7,0.1c0,0.1,0,0.1,0,0.2c0,0.5,0.3,0.9,1.1,1.4
+                      			c1.3-0.9,3.5-1.8,6.8-1.8c3.2,0,5.5,1,6.8,1.8c0.8-0.4,1.1-0.9,1.1-1.4h0.7c0,0.9-0.6,1.4-1.2,1.8c1.1,0.7,2.1,1.6,3,2.5
+                      			c0.7,0.8,1.3,1.5,1.8,2.5c-0.1,0.1-0.2,0.2-0.3,0.3c-0.1,0.2-0.5,0.5-0.6,0.7c-0.2,0.2-0.3,0.5-0.3,0.8c0,0.3,0.1,0.6,0.3,0.9
+                      			c0.2,0.4,1.8,3.4,2.1,4.1c0.3,0.6,0.8,1.1,1.2,1.4c0,0.4,0,0.5,0,0.9c0,2.2-0.4,4.4-1.2,6.4c-0.7,2-1.8,3.7-3.1,5.2
+                      			c-0.7,0.7-1.4,1.4-2.1,2h0c-0.1,0-0.2,0.1-0.5,0.1c-0.6,0-1.7,0-3.8-0.6c-0.4-0.1-1.5-0.4-1.9-0.5c-1.1-0.3-2.1-0.7-3.3-1.2
+                      			c0.3-0.4,0.7-0.5,1.1-0.5V45.5h-9.7c0-0.4-0.2-1.1-0.4-1.3c-0.3-0.4-0.5-0.8-0.6-1.2C31.1,42.8,31,42.6,31,42.4z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M31.4,22.6c0,0-3.9-2.7-0.7-6.6c3.2-3.9,10.2,1,10.2,1l0-1.4c-0.6-0.3-1-1-1-1.7c0-1.1,0.9-2,2-2c1.1,0,2,0.9,2,2
+                      			c0,0.7-0.4,1.4-1,1.7V17c0,0,7-4.9,10.2-1c3.2,3.9-0.7,6.6-0.7,6.6c-0.4,0.4-0.7,1-1.1,1.6L51,24c0.1-0.5,0.1-1.4-0.4-2.2
+                      			c0,0,3.2-1.5,0.6-4.7c-2.6-3.1-8.2,0.8-8.2,0.8v2.8h0.8c-0.7,0.4-1.3,1.1-1.4,1.8c0.5-0.1,1.3-0.4,1.7-1c-0.1,1-0.1,1.7,0,2.6
+                      			c-0.4-0.5-1.2-0.9-1.7-1l-0.7,0c-0.5,0.1-1.4,0.5-1.7,1c0.1-1,0.1-1.6,0-2.6c0.4,0.6,1.2,0.9,1.7,1c-0.2-0.7-0.7-1.4-1.4-1.8H41
+                      			l0-2.8c0,0-5.6-4-8.2-0.8c-2.6,3.1,0.6,4.7,0.6,4.7h0c-0.5,0.8-0.5,1.7-0.4,2.2c0.5-0.3,1-0.8,1.1-1.5c0.1,0.6,0.4,1.6,0.7,2.1
+                      			c-0.6-0.3-1-0.4-1.6-0.1l-0.5,0.1C32.2,23.7,31.8,23,31.4,22.6L31.4,22.6z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M19.9,19.9c0.4,0.7,1.3,1.2,2,0.7c0.6-0.4,0.1-0.9,0.8-2C21.9,19,20.8,19.5,19.9,19.9z M17.8,24.2
+                      			c0.3,0.1,0.3-0.7,0.8-0.7c0.4,0,0.4,0.3,0.1,0.9c0.6-0.2,1.2-0.4,1.5,0.1c0.2,0.5,0.1,0.8-0.3,1.2c-0.2,0.2-0.1,0.6,0.1,1.2
+                      			c0.2,0.5,0.9,1.3,1.8,0.9c1-0.4,0.9-1.3,0.6-1.8c-0.2-0.5-0.5-0.9-0.8-0.9c-0.5,0-0.8-0.1-1-0.6c-0.2-0.6,0.4-0.8,1-1.1
+                      			c-0.6-0.2-0.9-0.4-0.5-0.7c0.4-0.3,0.9,0.3,1,0c0.1-0.2-0.3-0.5-0.5-0.6c-0.2-0.2-0.5-0.2-0.8,0l-2.6,1c-0.3,0.1-0.5,0.3-0.5,0.6
+                      			C17.7,23.7,17.6,24.1,17.8,24.2z M14.9,21.6c1.2,0.3,1.2,1,1.9,0.9c0.9-0.1,1.2-1.1,1-1.9C16.9,21,15.8,21.4,14.9,21.6z M4.5,46.4
+                      			c0,1.5,0.9,2.2,2,2.2c2.7,0,4.4-4.8,7.3-8.7c1.8-2.6,3-7.8,4.2-10.3c-1.4,1-1.6,3.7-3.3,3.9c0.9-0.8,0.3-3.1,0.8-4.8
+                      			c0.2-0.6,0.3-1.2,0.1-1.9c-1,1.1-0.6,4.8-2.3,5.2c0.6-0.7-0.1-2-0.1-3.1c0-2.1,1.1-2.4,1.2-4.4c-1,0.4-0.7,3.2-2.6,3.1
+                      			c1.4-1.4,0-2.9,1.6-4.5c-0.9-0.4-1.6-1.2-1.6-1.9c0.6-0.5,1.4-0.7,2-0.7c-0.3-0.5,0.1-0.9,0.5-1.3c0.2,0.2,0.4,0.6,0.6,0.4
+                      			c0.4-0.3,1.8-1.1,3-1.6c1.2-0.5,2.7-0.9,3.2-1c0.3-0.1,0.2-0.4,0.1-0.7c0.6-0.1,1.2,0,1.3,0.6c0.5-0.4,1.2-0.6,1.9-0.7
+                      			c0.4,0.8,0.5,1.5,0.1,2.7c1,0.1,1.5,0.9,2.4,0.7c-0.8,1.1-1.7,0.6-2.6,0.5c2.6,0.8,3.1,3.4,4.5,3.5c-1.5,1.2-2.6-0.9-3.9-0.9
+                      			c3.5,1.7,3.5,3.8,4.5,3.9c-1.1,1-1.9-0.3-3.3-0.6c2.7,1.8,2.9,3.3,2.7,4.5c0.6,0.5,0.5,1.3,0.6,2.1c0.5-0.3,1.2-0.4,1.8-0.6
+                      			c-0.2,0.2-0.4,0.4-0.5,0.6c-1.4,1.6-2.4,3.1-3.1,5.1c-0.6-0.6-1.2-1.2-1.5-1.5c-0.6-0.5-1.1-0.4-1.3-0.4c0.9,1,3.9,4.2,4.7,5.2
+                      			c0.6,0.8,0.8,1.4,0.8,1.9c0,0.2,0,0.4,0.1,0.6c0.1,0.8,1.1,1.4,0.9,1.9c-0.2,0.7,0.3,0.8,0.3,1.3c0,0.6-0.6,0.9-1.2,1.1
+                      			c0.4-0.9,0-1.4-0.7-1.5c0.1,1.7-1.2,1.9-1.7,1.7c0.5-0.1,0.8-0.9,0.5-1.7c-0.2,0.6-0.8,1-1.4,1c-0.5,0-0.9-0.4-1.1-0.8
+                      			c0.6,0.4,1.1-0.1,1.1-0.4c0-0.3-0.6-0.5-0.6-1c0-1.2,1.3-0.7,1.3-1.7c0-0.4-0.2-0.6-0.5-0.6s-0.7,0.1-0.8,0.8
+                      			c-1.8-3.4-6.1-2-6.9-1.2c2.1,1.6,4.6,2.5,4.6,5.1c0,2-3,2.7-3,4s3.2,4.2,4.8,4.2c0.5,0,0.8-0.6,1.2-0.7c0.4,0,0.8,0,1.2,0
+                      			c0.4,0,0.7,0.4,0.7,0.7c0.3,0,0.5,0.2,0.8,0.4c0.4,0.4,0.6,1.1,0,1.7c-0.1-0.5-0.6-1.2-1.6-0.7c0.4,0.8,0,1.7-1,2
+                      			c0.3-0.5,0.4-1.3-0.2-1.3c-0.6,0-0.1,0.4-1.3,0.4c-1.2,0-2.1,0.3-2.6-0.4c-1-0.7-3.9-1-4.5-3.8c-0.2-0.6,0-1.2-0.7-1.5
+                      			c-0.2-0.1-0.4-0.3-0.4-0.6c0.1-0.3,0.2-0.2,0.7-0.4c0.6-0.2,1.2-0.8,1.2-2.1c0-1-0.2-2.5-1.9-3.4c0.1,2.2,0.1,4-0.9,5.7
+                      			c-1.3,2.1-3.4,3.5-4.6,4c-0.8,0.4-1.9,0.7-2.5,1.3l-2.1-1.5c1.5,0,2.6-2,2.9-4.1c0.3-2.6,1.3-4.4,2.4-6.3c0-0.3,0.1-0.6,0.2-0.9
+                      			c-1.1,1.3-2,3.4-3.5,4.6c0.2,1.7-3.1,3.6-4.9,2.1c0.6,0,1.8-0.2,2.1-1.2c-0.3,0-0.5-0.1-0.8-0.2c-1.1,0.6-2.9-0.2-2.9-1.4
+                      			c0.5,0.5,1,0.6,1.5,0.4c-0.4-0.5-0.6-1.2-0.6-2.1c0-4.9,7.6-8.2,7.6-12.2c0-1.3-0.8-1.9-1.6-1.9c-0.5,0-1,0.1-1.5,0.5
+                      			c0.4,0.3,0.6,0.8,0.6,1.3c0,4.5-7.2,4-7.8,7c-0.3-3.8,4.2-2.9,4.6-6.1c-0.9,1.4-2.5,2.4-3.5,1.9c2.3,0,1.6-4.8,4.3-4.8
+                      			c0.3,0,0.6,0.1,0.9,0.2c0.7-0.6,1.6-1,2.3-1c0.6,0,1.4,0.3,2,0.9c0.5,0.5,0.8,1.1,0.8,2.1C12.1,39,4.5,42,4.5,46.4z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M11.5,63c0.9,0,0.7-1,1.9-1c0.5,0,1.1,0.2,1.3,0.6c0.7-0.1,1.4,0.3,1.4,0.9c0,0.7-0.3,1-0.8,1.1c0.4-0.8-0.6-1-0.9-0.8
+                      			c-0.3,0.2,0.1,0.5,0.1,1c0,1.3-3.2,2-5,2c-0.3,0-0.5,0-0.7-0.1c-1.2-0.1-1.4-0.6-2.1-2c-1.1-1.7-1.8-4.1-1.8-5
+                      			c0-1.9,1.2-2.5,1.2-3.1c0-0.4-0.5-0.8,0-1.2c0.3-0.2,0.8,0.2,1.2,0.2l2.1,1.5c-0.3,0.3-0.4,0.7-0.4,1.2C8.8,61.3,10.1,63,11.5,63z
+                      			"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M45.2,24.3c-0.3-0.4-0.6-2.1,0.3-2.1c0.7,0,1,0.7,1.2,1.5l-0.3,0.1c-0.1-0.2-0.3-0.3-0.5-0.3
+                      			C45.6,23.4,45.3,23.7,45.2,24.3z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M81.3,36.7c0.2,3.7,4.8,2.8,4.1,5.6c-0.1-1.8-6.3-1.6-6.4-5.4c0-0.8,0.2-1.4,0.6-1.8c-0.3-0.2-0.6-0.3-1-0.3
+                      			c-1.1,0-2.6,1.1-2.6,2.9c0,4.8,6.4,5.4,6.4,10.7c0,1.1-0.4,2.1-1.2,2.7c0.5,0.1,1.3-0.2,1.7-0.7c-0.6,2-2.6,2.1-3.3,1.3
+                      			c-0.1,0-0.2,0-0.3,0c-0.2,0-0.3,0-0.5,0c0.4,0.8,1.1,1.7,2,1.5c-1.9,1.5-4.2-0.5-3.8-2.6c-0.6-0.6-0.9-1.4-1.2-2
+                      			c-0.2-0.5-0.5-0.2-0.5,0.3c0.1,1.6-1.2,3.2-1.2,4.4c0,1.2,1.2,2.3,1.6,2.3c0.4,0,0.7-0.5,1-0.3c0.3,0.1,0.3,0.5,0.2,1.4
+                      			c0,0.6,0.1,2,0.2,3.5c0,0.5,0.1,1.8,0.1,2.2c0,1.1-1.1,2.8-1.6,3c-0.1,2-2.7,1.5-3.9,1.3c-0.1,0-0.1,0-0.2,0
+                      			c0.4-0.4,1.2-2.3,2-2.9c0.9-0.6,1.3-0.8,1.5-2.2c0.2-1.4,0-2.3-0.1-3.5c-0.1-1.7-0.7-1.3-1.2-1.3c-1.1,0-5.4-2.7-5.4-5.5
+                      			c0-0.3,0-0.6,0.1-0.9c-1.9,0-3,0.5-3,2.3c0,0.6,0.1,1.2,0.5,1.6c0.4,0.3,0.6,0.6-0.1,0.9c-0.8,0.3-6.7,2.8-6.7,2.8
+                      			c0,0.4-1.6,1.4-3.8,1.5c-0.3,0-0.6,0-1,0c-0.4,0-1.4-0.2-1.4-0.2c1-1,1.6-1.6,2.2-2.2c0.6-0.6,1.2-0.8,2.4-1c1.4-0.2,6-0.8,6-2.3
+                      			c0-1.7-1.9-1.6-1.9-3.9c0-2,0.9-4.2,6.3-4.1c-0.5-1.3-1.9-2.3-3.2-2.6c-2.8-0.7-3.5-2.6-3.8-4.5c-0.8,0-1.5-0.1-2.1-0.1
+                      			c-1.7-0.1-2.5-0.6-3-0.3c-0.2,0.1-0.3,0.4-0.1,0.8c0.2,0.4,0.8,1.4,1.3,2.1c0.2-0.2,2,1.1,2.6,1.3c0.4,0.5,1.1,1.3,1.3,2l-0.7,1
+                      			c-0.2-0.2-1.5-0.9-2.3-1.3c-0.8-0.3-1.3-0.5-1.7-1.5c-0.4-1-1.6-3.2-2.1-4c-0.3-0.6-0.2-0.8-0.1-1c0.2-0.2,0.3-0.4,0.5-0.6
+                      			c0.3-0.5,0.4-0.4,0.9-0.4c0.5,0,1.6,0.1,2-0.1c0.1,0,0.2-0.1,0.4-0.1c-1.1-1.2-2.5-3-2.6-3.2c-0.2-0.3-0.5-0.5-0.7-0.5
+                      			c-0.2,0-0.4,0-0.6,0.2c-0.1,0.1-0.2,0.1-0.3,0.2c-0.1-0.1-0.2-0.2-0.3-0.4c-0.2-0.2-0.4-0.4-0.6-0.7c0.4-0.3,0.8-0.6,1-0.7
+                      			c0.3-0.2,0.4-0.4,0.7-0.4s0.6,0,0.7,0c0.4,0,0.5,0.1,0.7,0.3c0.4,0.5,1.1,1,1.6,1.4c0.1,0,0.1,0.1,0.2,0.1
+                      			c0.4,0.4,2.8,2.3,3.2,2.7c0.2-1.5,1-3,2-4.3L62.7,31l0.1-0.3c0-0.2,0.1-0.4,0.2-0.6l0.3,0.1c-0.1,0.2-0.1,0.4-0.2,0.6l8.9,5.1
+                      			l-0.2,0.3c-0.7,0.9-1.3,1.7-1.3,2.5c0,1,1.3,2.7,2.7,4.5c1,1.3,1.7,1.8,3.1,4.4c0.9,1.9,1.8,3.1,2.9,3.1c1.2,0,2.3-0.9,2.3-2.3
+                      			c0-4.9-6.4-5.4-6.4-10.9c0-2.1,1.5-3.3,2.7-3.7c0.3-0.1,0.6-0.1,0.8-0.1c0.9,0,1.5,0.2,2,0.8c0.2,0,0.3-0.1,0.5-0.1
+                      			c3,0,1.1,4,3.5,4.3C83.3,39.3,82,38.6,81.3,36.7z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M77.2,29.9c-0.5,0.2-1.3-0.3-1.8-1.2c0.6,2.2-0.3,3.5,0.1,4.4c-0.1,0-0.2,0-0.2,0c-0.5,0-0.9-0.5-1.1-1.3
+                      			c-0.1,0.5-0.3,0.9-0.5,1.4l0.7,0.5L74.2,34l-0.1,0.1c-1.1,1.2-1.7,1.8-1.9,2.1l-0.2,0.2c0,0-0.2-0.1-0.2-0.1l0.2-0.3
+                      			c0.7-0.7,2-2.1,2-2.1l-0.8-0.7c0.1,0.3,0,0.7-0.1,1.1c-0.2-0.1-0.4-0.5-0.4-0.8L72,34.3c0.2,0,0.6,0.1,0.8,0.3
+                      			c-0.6,0.6-1.1,0.3-1.4,0.1c-0.6-0.4-0.8-0.7-0.6-1c0.2-0.3,0.8-0.2,0.9,0.3c0.5-0.2,0.6-0.6,0.4-0.9c-0.1-0.2-0.4-0.3-0.8-0.2
+                      			c0.7-0.4,1.1-1,0.9-1.8c-0.8,0.2-1.2,0.6-1.4,1.5c0-0.3-0.2-0.6-0.5-0.7c-0.3,0-0.6,0.2-0.6,0.7c0.5-0.2,0.8,0.3,0.6,0.7
+                      			c-0.2,0.3-0.6,0.3-1.2-0.1c-0.6-0.4-0.7-0.9-0.4-1.5c0.2,0.1,0.3,0.5,0.3,0.9l0.7-1.2c-0.2,0.1-0.5,0.1-0.8,0
+                      			c0.2-0.2,0.5-0.6,1-0.6L68.5,30c0.2,0.4,0.1,0.9,0,1.2c-0.3-0.2-0.4-0.5-0.4-0.7l-0.6,1.2c0.3-0.2,0.7-0.2,0.9-0.2
+                      			c-0.3,0.6-0.8,0.8-1.5,0.4c-0.5-0.3-0.8-0.6-0.6-1c0.2-0.3,0.8-0.3,0.9,0.2c0.5-0.2,0.5-0.6,0.3-0.9c-0.2-0.2-0.5-0.2-0.8-0.1
+                      			c0.6-0.6,0.8-1.1,0.6-1.9c-0.8,0.2-1.1,0.9-1.1,1.7c-0.1-0.3-0.3-0.6-0.6-0.6c-0.3,0-0.6,0.3-0.6,0.8c0.5-0.2,0.9,0.3,0.7,0.6
+                      			c-0.2,0.3-0.5,0.2-1.2-0.1c-0.4-0.2-0.8-0.5-0.6-1.3c0.3,0.1,0.5,0.4,0.6,0.6l0.4-1c-0.3,0.2-0.7,0.2-0.9,0.1
+                      			c0.3-0.3,0.6-0.6,0.9-0.7L64,28c0,0-0.4,1.2-0.7,2.2L63,30.1c0.2-0.7,0.4-1.4,0.6-1.9c0.1-0.2,0.1-0.3,0.1-0.3l0.1-0.4l1.7,0.6
+                      			c0.1,0,0.1-0.1,0.2-0.1c1.5-1.4,5-2.3,5-4.4c0-0.5-0.2-1.1-0.7-1.5c0.2,0.3,0.3,0.8,0.2,1.2C70,23.9,69.2,25,67.8,25
+                      			c-0.8,0-1.3-0.8-1.6-0.8c-0.2,0-0.4,0.1-0.6,0.3c0.1,1-0.4,1.6-0.8,1.7c0.2-0.4,0-1.2-0.1-1.1c-0.1,0.1-0.3,0.2-0.3,0.8
+                      			c0,0.6-0.6,1.4-1.4,1.5c0.2-0.2,0.4-1.2,0.2-1.4c-0.2-0.1-0.4,0.3-0.6,0.3c-0.2,0-0.4-0.2-0.4-0.5c0-0.2-0.5,0-0.5-0.2
+                      			c-0.1-0.2,0.5-0.6,1-0.8c0.5-0.2,1.3-0.6,1.2-0.9c-0.2-0.5-1.8,0.3-2.5,0.7c-1,0.6-0.6-0.2-0.7-0.6c-0.4-0.9,0-1,0.4-1.4
+                      			c0.6-0.5,1.8-1.3,3.1-2c0-0.4,0.3-0.8,0.6-0.9c0.5-0.2,1.1-0.4,1.6-0.6l-7.2-9c-0.2-0.2-0.2-0.3-0.1-0.4c0.1-0.1,0.2,0,0.4,0.2
+                      			l8.4,8.2c0.2-0.5,0.4-1.2,0.2-2c1,0.5,1.9,1.5,2.1,2.5c2.6,0,3.2,1.6,4,1c0.1,0.4-0.3,0.8-1.1,1c3,0.8,2.2,2.9,3.9,3.2
+                      			c-0.3,0.3-0.7,0.4-1.3,0.2C77.7,26.9,75.8,28.6,77.2,29.9z M67.5,21.4c-0.6-0.2-1.1-0.7-1.6-0.7c-1,0-0.7,0.9-1,1.4
+                      			C65.6,21.8,66.5,21.5,67.5,21.4z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M74.8,68.6c0,0.1,0,0.3-0.2,0.3c-0.9,0.4-1.7,1.1-2.5,1.7c-1.1,0.9-2.1,1.7-3.3,1.7c-1.1,0-2.2-0.3-3.7-1.1
+                      			c-1.2-0.7-2.5-1.5-3.7-2.3c-2.4-1.7-4.9-3.3-7.2-3.5c0.2,0.3,0.5,0.5,0.7,0.7c0.7,0.7,1.4,1.2,1.4,2.3c0,0.8-0.3,1.3-0.6,2
+                      			c-0.1,0.2-0.2,0.3-0.3,0.5L53,70.7c-0.1-0.3-0.5-0.5-1.1-0.8c-0.2-0.1-0.3-0.1-0.5-0.2c-0.7-0.4-1.2-0.7-1.6-1.1
+                      			c-0.4-0.4-0.6-0.9-0.6-1.4c0-0.6,0.3-1.1,0.7-1.8c0.3-0.6,0.8-1.2,1.2-2.3c0.4-1,1.1-1.8,1.9-2.2c0.6-0.3,1.4-0.5,2.2-0.6
+                      			c0.1,0,0.2,0,0.2,0c2.5,0,5.4,1.9,8.5,4c2.4,1.6,4.8,3.2,7.1,3.9c1.2,0.4,2.3,0.5,3.4,0.2C74.6,68.4,74.8,68.4,74.8,68.6z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M53,70.7l2.4,0.1c-0.1,0.2-0.2,0.4-0.3,0.6c-0.3,0.6-0.4,1.1-0.5,1.7c-0.1,0.3-0.2,0.6-0.2,1c-0.2,0.6-0.4,1.6-2.2,2.5
+                      			c-2,1-5.5,1.5-10.3,1.5s-8.3-0.5-10.3-1.5c-1.7-0.9-2-1.9-2.1-2.5c-0.1-0.4-0.2-0.7-0.2-1c-0.2-0.7-0.3-1.1-0.5-1.7
+                      			c-0.1-0.2-0.1-0.3-0.2-0.4l2.4-0.2c1.2,0.5,2.8,1,4.5,1.3c2,0.3,4.2,0.5,6.5,0.5c0,0,0,0,0,0c2.3,0,4.5-0.2,6.5-0.5
+                      			C50.2,71.7,51.8,71.2,53,70.7z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M51,24l0.4,0.2c-0.6,1.1-1.2,2.5-1.5,3.7c0.4,0.3,0.6,0.8,0.6,1.3h-0.7c0-0.9-1.3-1.4-2.9-1.7c-1.6-0.3-3.6-0.3-4.9-0.3
+                      			c-2.6,0-7.5,0.2-7.8,1.8L33.5,29c0-0.4,0.2-0.8,0.6-1c-0.3-1.1-0.8-2.3-1.4-3.4l0.5-0.1c0.3,0.5,1.2,1.1,2.5,0.8
+                      			c0.7-0.2,1.4-0.5,1.4-1.1c0-0.3-0.3-0.7-0.7-0.7c-0.4,0-0.5,0.7-0.3,1c-0.6-0.3-1.1-2-0.3-2.2c0.7-0.2,1.3,0.8,1.5,1.5
+                      			c0.1-0.9,0.5-1.7,1.2-1.7c0.9,0.1,0.6,1.7,0.3,2.1c-0.1-0.6-0.4-0.9-0.6-0.9c-0.2,0-0.6,0.2-0.5,0.7c0,0.5,0.8,0.9,1.7,0.9
+                      			c0.8,0,2.3-0.2,2.4-1.8l0.7,0c0.1,1.6,1.6,1.9,2.4,1.9c0.9,0,1.6-0.3,1.7-0.9c0-0.2,0-0.3,0-0.4l0.3-0.1c0,0,0,0.1,0,0.1
+                      			c0.2-0.7,0.9-1.7,1.5-1.5c0.9,0.2,0.3,1.9-0.3,2.2c0.1-0.3,0.1-0.9-0.3-1c-0.4,0-0.7,0.3-0.7,0.7c0,0.5,0.7,0.9,1.3,1.1
+                      			c1.3,0.3,2.1-0.4,2.5-0.8c-0.6-0.2-1-0.1-1.6,0.1c0.3-0.6,0.6-1.5,0.7-2.1C50.1,23.1,50.5,23.6,51,24z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M49.7,59.5c0,0-0.1,0.1-0.2,0.1c-0.4,0.4-0.9,0.8-1.5,1.1c-1.4,0.9-2.8,1.4-3.8,1.4c-0.1,0-0.3,0-0.5,0
+                      			c-1.1-0.1-2.5-0.3-3.9-0.7C38.4,61,37,60.5,36,59.9c-0.6,0.4-1.2,0.5-1.8,0.2C33.5,59.8,33,59,33,58.5c0-0.1,0-0.2,0-0.3
+                      			c-0.5-0.4-1-0.9-1.4-1.4c-0.2-0.2-0.3-0.4-0.5-0.6c-1.1-1.4-2-2.9-2.6-4.7c-0.3-0.9-0.6-1.9-0.8-2.8c1.2,0.4,1.8,0,2.1-0.4
+                      			c0.1,0,0.1,0.4,0.1,0.5c1.4,0,2.1-0.9,2.3-1.6c0.1,0.8,0.3,1.7,0.6,2.5c0.5,1.4,1.2,2.6,2.1,3.7c0.3,0.4,0.6,0.7,1,1
+                      			c0.2-0.1,0.4-0.1,0.7-0.1c0.5,0,1,0.2,1.4,0.7c0.4,0.4,0.6,1,0.5,1.5v0c2.4,1.1,5,2,7.2,2.6C47,59.4,48.6,59.7,49.7,59.5z"></path>
+                <path fill="currentColor" fill-rule="evenodd"
+                      d="M47.1,19.4c0.4,0.8,0.7,1.2,0.7,1.8c0,0.6-0.7,1-1,1.6c-0.3-0.7-0.7-1.2-0.7-1.8C46.2,20.5,46.9,19.8,47.1,19.4z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M45.8,66.9c0,0.7-0.4,1.3-0.7,1.7c-0.2-0.4-0.3-0.7-0.6-0.7c-0.5,0-0.2,2.3-1.6,2.3c0.1,0.1,0.1,0.2,0.1,0.4
+                      			c0,0.6-0.5,1-1,1c-0.6,0-1-0.5-1-1c0-0.1,0-0.2,0.1-0.4c-1.3-0.1-1.1-2.3-1.6-2.3c-0.2,0-0.4,0.3-0.6,0.7c-0.3-0.4-0.7-1-0.7-1.7
+                      			c0-0.7,0.6-1.5,1.5-1.5c0.2,0,0.3,0,0.5,0.1v-3.2c1.3,0.3,2.5,0.5,3.6,0.6c0,0,0.1,0,0.2,0v2.6c0.1,0,0.3-0.1,0.4-0.1
+                      			C45.2,65.4,45.8,66.2,45.8,66.9z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M44,8.4v2.4c-0.4-0.5-1.1-0.9-1.6-1c0.1,0.6,0.5,1.2,1,1.5h-2.5c0.5-0.4,0.9-0.9,1-1.5c-0.6,0.1-1.3,0.5-1.7,1V8.4
+                      			c0.4,0.5,1.1,0.9,1.7,1c-0.1-0.6-0.4-1.1-1-1.7h2.4c-0.5,0.6-0.9,1.1-0.9,1.7C42.9,9.2,43.6,8.8,44,8.4z"></path>
+                <path fill="currentColor" fill-rule="evenodd"
+                      d="M37.8,21c0,0.5-0.4,1.1-0.7,1.8c-0.3-0.6-0.9-1-1-1.6c0-0.6,0.3-1,0.7-1.8C37,19.8,37.7,20.5,37.8,21z"></path>
+                <path fill="currentColor" fill-rule="evenodd" d="M34.7,67.2c0,0.5-0.2,0.9-0.6,1.3c-0.4,0.3-1,0.7-1.6,1c-0.2,0.1-0.3,0.2-0.5,0.2c-0.7,0.3-1,0.5-1.1,1l-2.4,0.2
+                      			c-0.1-0.1-0.1-0.3-0.2-0.4c-0.4-0.8-0.7-1.5-0.7-2.3c0-1.1,0.6-1.6,1.3-2.2c0.2-0.2,0.5-0.4,0.7-0.7c-2.4,0.2-4.8,1.9-7.2,3.5
+                      			c-1.2,0.8-2.5,1.7-3.7,2.3c-1.4,0.7-2.6,1.1-3.7,1.1c-1.1,0-2.2-0.8-3.3-1.7c-0.8-0.6-1.6-1.2-2.5-1.7c-0.1-0.1-0.2-0.2-0.1-0.3
+                      			c0-0.1,0.1-0.2,0.2-0.2c0,0,0.1,0,0.1,0c3,0.9,6.8-1.6,10.5-4.1c2.6-1.8,5.1-3.4,7.4-3.9c0.4-0.1,0.7-0.1,1.1-0.1
+                      			c0.9,0,1.7,0.2,2.4,0.6c0.9,0.5,1.5,1.2,1.9,2.2c0.4,1,0.9,1.7,1.2,2.3C34.4,66.1,34.7,66.6,34.7,67.2z"></path>
+              </svg>
+            <span
+                class="govuk-header__logotype-text"> Companies House</span>
+
+            </span>
+          </a>
+        </div>
+        <div class="govuk-header__content">
+          <a class="govuk-header__link govuk-header__link--service-name"
+             href="/">
+            Developer Hub
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<div class="govuk-width-container">
+  <div class="js-toggle-nav" id="global-nav">
+  <nav class="content">
+    <div>
+      <ul class="mobile-hidden" id="navigation">
+        
+        
+          <li><a class="piwik-event govuk-link" data-event-id="Sign In" href="/signin"
+                 id="user-signin">Sign in / Register</a></li>
+        
+        <li><a class="govuk-link"
+               href="https://forum.aws.chdev.org/">Developer
+          forum</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+  
+  <div>
+    <!-- Non Error pages require Nav bar and do not have main wrapper in fragment -->
+    
+      <main class="govuk-main-wrapper" id="main-content">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-one-third">
+            
+  <nav class="app-subnav app-hide-mobile">
+    
+      
+        <h4 class="app-subnav__theme">General documentation</h4>
+        <ul class="app-subnav__section">
+          
+            
+  <li class="app-subnav__section-item">
+    <a class="app-subnav__link govuk-link" href="/">Companies House API overview</a>
+  </li>
+  
+
+          
+            
+  <li class="app-subnav__section-item">
+    <a class="app-subnav__link govuk-link" href="/get-started">Get started</a>
+  </li>
+  
+
+          
+            
+  <li class="app-subnav__section-item">
+    <a class="app-subnav__link govuk-link" href="/overview">Companies House REST API</a>
+  </li>
+  
+
+          
+            
+  <li class="app-subnav__section-item">
+    <a class="app-subnav__link govuk-link" href="/how-to-create-an-application">How to create an application</a>
+  </li>
+  
+
+          
+            
+  <li class="app-subnav__section-item">
+    <a class="app-subnav__link govuk-link" href="/authentication">API authentication</a>
+  </li>
+  
+
+          
+            
+  <li class="app-subnav__section-item">
+    <a class="app-subnav__link govuk-link" href="/developer-guidelines">Developer guidelines</a>
+  </li>
+  
+
+          
+            
+  <li class="app-subnav__section-item">
+    <a class="app-subnav__link govuk-link" href="/api-testing">API testing</a>
+  </li>
+  
+
+          
+        </ul>
+      
+      
+        <h4 class="app-subnav__theme">API specifications</h4>
+        <ul class="app-subnav__section">
+          
+            
+  <li class="app-subnav__section-item">
+    <a class="app-subnav__link govuk-link" href="https://developer-specs.company-information.service.gov.uk">API specifications list</a>
+  </li>
+  
+
+          
+        </ul>
+      
+    
+    
+  </nav>
+
+          </div>
+          <div class="govuk-grid-column-two-thirds">
+            <div id="temp-home-main-content">
+    <h1 class="govuk-heading-xl">Companies House REST API</h1>
+  <section>
+    <p class="govuk-body">The Companies House API is a REST API that provides a simple, consistent
+      approach to requesting and modifying data. REST stands for Representational State Transfer which
+      is an architectural software style in which standard HTTP request methods are used to retrieve and
+      modify representations of data. This is identical to the process of retrieving a web page or
+      submitting a web form.
+    </p>
+    <p class="govuk-body">Previous versions of the Companies House API implemented an XML-RPC style
+      of interface. Data was retrieved or submitted by POSTing XML documents to the service. Each version
+      defined the method to be called and the data to be processed.
+    </p>
+    <p class="govuk-body">The difference between both API approaches is explained below.
+    </p>
+  </section>
+  <section id="rest">
+    <h2 class="govuk-heading-l">Representational State Transfer (REST) web services</h2>
+    <p class="govuk-body">In a RESTful style of API, data resources are allocated unique URLs and
+      manipulated through standard HTTP verbs such as:
+    </p>
+    <ol class="govuk-list govuk-list--bullet">
+      <li><code>GET</code> to request a resource</li>
+      <li><code>POST</code> to create a resource</li>
+      <li><code>PUT</code> to change a resource</li>
+      <li><code>DELETE</code> to remove a resource</li>
+    </ol>
+    <p class="govuk-body">In contrast to the above XML-RPC examples, the same RESTful API
+      request for a <code>customer</code> record would be:
+    </p>
+    <pre class="request"><span class="request">GET <span
+        class="string">https://api.example.domain/customer/12345</span> HTTP/1.1</span></pre>
+    <p class="govuk-body">The resource request is made using the <code>GET</code> method with no request body.
+    </p>
+    <p class="govuk-body">In a RESTful API, a resource is modified by POSTing a revised resource
+      representation, in this case JSON, to the same resource URL:
+    </p>
+    <pre><code><span class="request">POST <span
+        class="string">https://api.example.domain/customer/12345</span> HTTP/1.1</span></code></pre>
+    <pre><code class="http">Content-Type: <span class="string">text/json</span></code></pre>
+    <pre><code class="http">{
+    "CustomerName": <span class="string">"Joe Bloggs"</span>,
+    "Address"      : <span class="string">""</span>,
+    "etc"           : <span class="string">"etc"</span>
+}</code></pre>
+    <p class="govuk-body">
+      Similarly, a resource may be deleted by sending a <code>DELETE</code> request to the resource
+      URL:
+    </p>
+    <pre><code><span class="request">DELETE <span
+        class="string">https://api.example.domain/customer/12345</span> HTTP/1.1</span></code></pre>
+    <p class="govuk-body">REST uses the existing features of the HTTP protocol and does not permit
+      the designer to
+      define application specific operations. Also, because each resource has a globally
+      unique URI and is able to make use of the <code>GET</code> method for resource requests, these
+      APIs benefit from existing network components such as caches, proxies and intelligent routing.
+    </p>
+  </section>
+  <section id="json">
+    <h2 class="govuk-heading-l">The JSON data format</h2>
+    <p class="govuk-body">JSON, or JavaScript Object Notation, is an open, standard format for
+      storing and exchanging data. It is easier to use than XML and more compact. It can be used as
+      a data format by any programming language, which makes it ideal for HTTP-based API
+      services.
+    </p>
+  </section>
+  <section id="api-specs">
+    <h2 class="govuk-heading-l">API specifications</h2>
+    <p class="govuk-body">The API specifications list in the <a class="govuk-link"
+      href="https://developer-specs.company-information.service.gov.uk/">
+      Developer's API suite</a> documents all of the available Companies House public API operations, from
+      reading public company data to submitting a data change for a specific company.
+    </p>
+    <p class="govuk-body">API specifications for all Companies House public API operations are
+      documented using <a class="govuk-link" href="https://en.wikipedia.org/wiki/OpenAPI_Specification">
+      OpenAPI specifications</a>.
+    </p>
+  </section>
+</div>
+          </div>
+        </div>
+      </main>
+    
+    <!-- Error pages come with their own main wrapper and no Nav Bar -->
+    
+  </div>
+</div>
+<footer class="govuk-footer " id="footer">
+  <div class="govuk-width-container ">
+    <nav class="app-subnav app-hide-mobile">
+
+      <div class="govuk-footer__meta">
+        <div class="govuk-footer__meta-item govuk-footer__meta-item--grow">
+
+          <h2 class="govuk-visually-hidden">Support links</h2>
+
+          <ul class="govuk-footer__inline-list">
+
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link"
+                 href="http://www.companieshouse.gov.uk/legal/termsAndConditions.shtml">
+                Policies
+              </a>
+            </li>
+
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link"
+                 href="https://find-and-update.company-information.service.gov.uk/help/cookies">
+                Cookies
+              </a>
+            </li>
+
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link" href="https://forum.aws.chdev.org/">
+                Forum
+              </a>
+            </li>
+
+            <li class="govuk-footer__inline-list-item">
+              <a class="govuk-footer__link"
+                 href="https://find-and-update.company-information.service.gov.uk/help/contact-us">
+                Contact us
+              </a>
+            </li>
+          </ul>
+
+          <svg class="govuk-footer__licence-logo" focusable="false"
+               height="17" viewBox="0 0 483.2 195.7" width="41" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M421.5 142.8V.1l-50.7 32.3v161.1h112.4v-50.7zm-122.3-9.6A47.12 47.12 0 0 1 221 97.8c0-26 21.1-47.1 47.1-47.1 16.7 0 31.4 8.7 39.7 21.8l42.7-27.2A97.63 97.63 0 0 0 268.1 0c-36.5 0-68.3 20.1-85.1 49.7A98 98 0 0 0 97.8 0C43.9 0 0 43.9 0 97.8s43.9 97.8 97.8 97.8c36.5 0 68.3-20.1 85.1-49.7a97.76 97.76 0 0 0 149.6 25.4l19.4 22.2h3v-87.8h-80l24.3 27.5zM97.8 145c-26 0-47.1-21.1-47.1-47.1s21.1-47.1 47.1-47.1 47.2 21 47.2 47S123.8 145 97.8 145"
+                fill="currentColor"></path>
+          </svg>
+          <span class="govuk-footer__licence-description">
+          All content is available under the
+          <a
+              class="govuk-footer__link"
+              href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/"
+              rel="license"
+          >Open Government Licence v3.0</a>, except where otherwise stated
+        </span>
+
+        </div>
+        <div class="govuk-footer__meta-item">
+          <a
+              class="govuk-footer__link govuk-footer__copyright-logo"
+              href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/"
+          >© Crown copyright</a>
+        </div>
+      </div>
+    </nav>
+  </div>
+</footer>
+
+<script crossorigin="anonymous"
+        src="https://polyfill.io/v3/polyfill.min.js?features=default%2CNumber.isInteger"></script>
+<script
+    src="//d6nh3dxv55e16.cloudfront.net/javascripts/app/body-js-enable.js"></script>
+<script
+    src="//d6nh3dxv55e16.cloudfront.net/javascripts/vendor/require.js"></script>
+<script
+    src="//d6nh3dxv55e16.cloudfront.net/javascripts/vendor/jquery-3.3.1.min.js"></script>
+<script
+    src="//d6nh3dxv55e16.cloudfront.net/javascripts/app/govuk-frontend-2.12.0.min.js"></script>
+<script
+    src="//d6nh3dxv55e16.cloudfront.net/javascripts/app/js-enable.js"></script>
+<script
+    src="//d6nh3dxv55e16.cloudfront.net/javascripts/app/radio-buttons.js"></script>
+<script
+    src="//d6nh3dxv55e16.cloudfront.net/javascripts/app/cookie-consent/cookie-consent-1.0.0.js"
+    type="text/javascript"></script>
+<script
+    src="//d6nh3dxv55e16.cloudfront.net/javascripts/app/cookie-consent/piwik-only-cookie-consent.js"
+    type="text/javascript"></script>
+</body>
+</html>
