@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+  <link rel="shortcut icon" href="/share/WW/Replay2023-Favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/share/WW/Replay2023-Favicon_128px.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/share/WW/Replay2023-Favicon_32px.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/share/WW/Replay2023-Favicon_16px.png">
+  <link rel="manifest" href="/share/WW/manifest.json">
+
+  <link rel="preconnect" href="https://amp-api.music.apple.com" crossorigin>
+  <link rel="preconnect" href="https://is1-ssl.mzstatic.com" crossorigin>
+  <link rel="preconnect" href="https://is2-ssl.mzstatic.com" crossorigin>
+  <link rel="preconnect" href="https://is3-ssl.mzstatic.com" crossorigin>
+  <link rel="preconnect" href="https://is4-ssl.mzstatic.com" crossorigin>
+  <link rel="preconnect" href="https://is5-ssl.mzstatic.com" crossorigin>
+
+  <script>
+    window.__REPLAY_STANDALONE = true;
+
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('reduced-motion');
+    }
+  </script>
+
+  <script>
+    var isMobile = /mobile/.test(navigator.userAgent);
+    var isIpadOS = !!(
+      navigator.maxTouchPoints &&
+      navigator.maxTouchPoints > 2 &&
+      /MacIntel/.test(navigator.platform)
+    );
+    var isIOS = /iPad|iPhone|iPod/.test(navigator.platform) || isIpadOS;
+    var isAndroid = /android/i.test(navigator.userAgent);
+    var isPhoneOrTablet = isMobile || isIOS || isAndroid;
+
+    var isRedirectDisabled = localStorage.getItem('REPLAY_DANCE_OFF') !== null || window.location.search.includes('redirect=false');
+    // TODO remove next three lines in production
+    var hostname = window.location.hostname;
+    var isDev = hostname === 'replay-dev.music.apple.com' || hostname === 'localhost';
+
+    if (
+      !isRedirectDisabled &&
+      !isPhoneOrTablet &&
+      !isDev // TODO remove in prod
+    ) {
+      const storefront = window.location.pathname.split('/')?.filter(p => p !== '')?.[0] || getCookie('itua') || getCookie('geo');
+      const replayRoute = storefront ? `${storefront}/replay` : 'replay';
+
+      if (hostname.includes('carry')) {
+        document.location.replace(`https://carry.music.apple.com/${replayRoute}`);
+      } else {
+        document.location.replace(`https://music.apple.com/${replayRoute}`);
+      }
+    }
+
+    function getCookie(name) {
+      const prefix = `${name}=`;
+      const cookie = document?.cookie
+        .split(';')
+        .map(cookie => cookie.trimStart())
+        .filter(cookie => cookie.startsWith(prefix))[0];
+
+      if (!cookie) {
+        return null;
+      }
+
+      return cookie.substr(prefix.length).toLowerCase();
+    }
+  </script>
+
+  <!-- SEO_TAGS -->
+
+  <title>Replay 2023 - Apple Music</title>
+
+  <meta name="description" content="Look back at the top songs, artists, albums that defined your year. Listen to your personalized 2023 Apple Music Replay mix." />
+
+  <meta name="keywords" content="apple music replay, apple music replay 2021, apple music replay 2022, ....continued" />
+
+  <link rel="canonical" href="https://replay.music.apple.com" />
+
+  <!-- Open Graph Tags -->
+  <meta property="og:title" content="Apple Music Replay is here" />
+  <meta property="og:description" content="Look back at the top songs, artists, albums that defined your year. Listen to your personalized 2023 Apple Music Replay mix." />
+  <meta property="og:site_name" content="Apple Music" />
+  <meta property="og:url" content="https://replay.music.apple.com" />
+
+  <meta property="og:image" content="https://replay.music.apple.com/share/WW/Link_Preview/Replay2023-Link_Preview.png" />
+  <meta property="og:image:secure_url" content="https://replay.music.apple.com/share/WW/Link_Preview/Replay2023-Link_Preview.png" />
+  <meta property="og:image:alt" content="REPLAY" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:type" content="image/jpg" />
+  <meta property="og:type" content="music.playlist" />
+  <!-- End OpenGraph -->
+
+  <!-- Twitter Tags -->
+  <meta property="twitter:title" content="Apple Music Replay is here" />
+  <meta property="twitter:description" content="Look back at the top songs, artists, albums that defined your year. Listen to your personalized 2023 Apple Music Replay mix." />
+  <meta property="twitter:domain" content="Apple Music" />
+  <meta property="twitter:site" content="@AppleMusic" />
+
+  <meta name="twitter:image" content="https://replay.music.apple.com/share/WW/Link_Preview/Replay2023-Link_Preview.png" />
+  <meta name="twitter:image:alt" content="REPLAY" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <!-- Twitter Tags -->
+
+  <!-- SEO TAGS END-->
+  <script type="module" crossorigin src="/assets/index.4bcf3a03.js"></script>
+  <link rel="stylesheet" href="/assets/index.b5d88ac1.css">
+  <script type="module">try{import.meta.url;import("_").catch(()=>1);}catch(e){}window.__vite_is_modern_browser=true;</script>
+  <script type="module">!function(){if(window.__vite_is_modern_browser)return;console.warn("vite: loading legacy build because dynamic import or import.meta.url is unsupported, syntax error above should be ignored");var e=document.getElementById("vite-legacy-polyfill"),n=document.createElement("script");n.src=e.src,n.onload=function(){System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))},document.body.appendChild(n)}();</script>
+</head>
+
+<body>
+  <div id="app"></div>
+
+  <div class="footer-player-wrapper hidden">
+    <amp-footer-player></amp-footer-player>
+  </div>
+
+  <script src="https://js-cdn.music.apple.com/musickit/v3/amp/musickit.js" data-web-components async></script>
+
+  
+
+  <svg style="display:none" xmlns="http://www.w3.org/2000/svg">
+    <symbol id="play-circle-fill" viewBox="0 0 60 60">
+      <path class="icon-circle-fill__circle" fill="var(--iconCircleFillBG, transparent)"
+        d="M30 60c16.411 0 30-13.617 30-30C60 13.588 46.382 0 29.971 0 13.588 0 .001 13.588.001 30c0 16.383 13.617 30 30 30Z" />
+      <path fill="var(--iconFillArrow, var(--keyColor, black))"
+        d="M24.411 41.853c-1.41.853-3.028.177-3.028-1.294V19.47c0-1.44 1.735-2.058 3.028-1.294l17.265 10.235a1.89 1.89 0 0 1 0 3.265L24.411 41.853Z" />
+    </symbol>
+  </svg>
+  <script nomodule>!function(){var e=document,t=e.createElement("script");if(!("noModule"in t)&&"onbeforeload"in t){var n=!1;e.addEventListener("beforeload",(function(e){if(e.target===t)n=!0;else if(!e.target.hasAttribute("nomodule")||!n)return;e.preventDefault()}),!0),t.type="module",t.src=".",e.head.appendChild(t),t.remove()}}();</script>
+  <script nomodule crossorigin id="vite-legacy-polyfill" src="/assets/polyfills-legacy.f3c91702.js"></script>
+  <script nomodule crossorigin id="vite-legacy-entry" data-src="/assets/index-legacy.73e7f59d.js">System.import(document.getElementById('vite-legacy-entry').getAttribute('data-src'))</script>
+</body>
+
+</html>
